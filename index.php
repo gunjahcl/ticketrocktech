@@ -39,7 +39,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="requerimientosInternos.php">Requerimientos Internos</a></li>
-              <li><a class="dropdown-item" href="requermientosClientes.php">Requerimientos Clientes</a></li>
+              <li><a class="dropdown-item" href="requerimientosClientes.php">Requerimientos Clientes</a></li>
               <li>
               </li>
               <li><a class="dropdown-item" href="requerimientos.php">Recomendaciones</a></li>
@@ -72,80 +72,12 @@
   </div>
   
   <div  class="container">
-    <form action="agregadoTicket.php" method="post">
-
-        <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-4">
-          <label for="validationServer01" name="nombre" id="nombre" class="form-label">Nombre</label>
-          <input type="text" name="nombre" id="nombre" class="form-control " id="validationServer01" placeholder="Mark" required>
-        </div>
-        
-        <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-4">
-          <label for="validationServer02" id="apellido" name="apellido" class="form-label">Apellido</label>
-          <input type="text" id="apellido" name="apellido" class="form-control" id="validationServer02" placeholder="Otto" required>
-          <div class="valid-feedback">
-          
-          </div>
-        </div>
-        
-        <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-4">
-          <label for="validationServerUsername" name="correo" id="correo" class="form-label">Username</label>
-          <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="input-group has-validation">
-            <span class="input-group-text" id="inputGroupPrepend3">@</span>
-            <input type="text" name="correo" id="correo" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
-            <div id="validationServerUsernameFeedback" class="invalid-feedback">
-              
-            </div>
-          </div>
-        </div>
-        
-   
-        
-        <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-3">
-          <label for="validationServer04" class="form-label"></label>
-          <select class="form-select " name="departamento" id="departamento" aria-describedby="validationServer04Feedback" required>
-            <option selected disabled value="">Departamento</option>
-            <option>Recursos Humanos</option>
-            <option>Comercial</option>
-            <option>Operaciones</option>
-            <option>Ingenieria</option>
-            <option>Informatica</option>
-            <option>Adquisiciones</option>
-          </select>
-          <div id="validationServer04Feedback" class="invalid-feedback">
-          </div>
-        </div>
-        
-        
-          <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;margin-top: 60px;" class="col-md-4">
-          <label for="validationServer02" id="requerimiento" name="requerimiento" class="form-label">Requerimiento</label>
-          <input type="text" name="requerimiento" id="requerimiento"class="form-control" id="validationServer02" placeholder="Otto" required>
-          <div class="valid-feedback">
-               </div>
-          </div>
+    
+      <a href="agregarCliente.php"> <img style="display: flex; justify-content: center; top: 100px; margin-top: 60px;" class="logo" src="imgs\clientes.png" alt="">  </a>
+      <a href="agregarInterno.php"><img style="display: flex; justify-content: center; top: 100px; margin-top: 60px;" class="logo" src="imgs\internos.png" alt="">  </a>
       
-        <div style="position: relative; justify-content: center; margin-top: 80px;" class="col-12">
-          <textarea class="col" style="display: flex; justify-content: center; margin-top: 40px; width: 100%;" name="descripcion" placeholder="Descripción"></textarea>
-          
-          </div>
-        
-        <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-3">
-          <label for="validationServer04" class="form-label"></label>
-          <select class="form-select " name="prioridad" id="prioridad" aria-describedby="validationServer04Feedback" required>
-            <option selected disabled value="">Prioridad</option>
-            <option>Baja</option>
-            <option>Media</option>
-            <option>Alta</option>
-            <option>Urgente</option>
-          </select>
-          
-          <div id="validationServer04Feedback" class="invalid-feedback">
-              
- 
-          </div>
-         
-        </div>
-         <input class="btn btn-primary" style="display: flex; margin: 0px auto; margin-top:70px" type="submit" value="Enviar">      
-      </form>
+      
+      
      </div>
 
         <section class="footer">

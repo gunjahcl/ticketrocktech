@@ -13,7 +13,7 @@ if ($mysqli->connect_error) {
 
 $id = $_GET["id"];
 
-$sql = "SELECT * FROM ticket_personal WHERE id_ticketPersonal=$id";
+$sql = "SELECT * FROM ticket_cliente WHERE id_ticketCliente=$id";
 $resultado = $mysqli->query($sql);
 if($resultado->num_rows === 1){
     
@@ -99,21 +99,21 @@ $fila= $resultado->fetch_assoc();
   </div>
   
   <div  class="container">
-    <form action="modificadoInterno.php" method="post">
+    <form action="modificadoCliente.php" method="post">
         
         <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-4">
           <label for="validationServer01" class="form-label">ID</label>
-          <input readonly type="text" name="id" value="<?php echo $fila["id_ticketPersonal"]; ?>" class="form-control " id="validationServer01" placeholder="Mark" required>
+          <input readonly type="text" name="id" value="<?php echo $fila["id_ticketCliente"]; ?>" class="form-control "  placeholder="Mark" required>
         </div>
 
         <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-4">
-          <label for="validationServer01" class="form-label">Nombre</label>
-          <input type="text" name="nombre" value="<?php echo $fila["nombre"]; ?>" class="form-control " id="validationServer01" placeholder="Mark" required>
+          <label for="validationServer01" class="form-label">Empresa</label>
+          <input type="text" name="empresa" value="<?php echo $fila["empresa"]; ?>" class="form-control "  placeholder="Mark" required>
         </div>
         
         <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-4">
-          <label for="validationServer02" class="form-label">Apellido</label>
-          <input type="text" id="apellido" name="apellido" value="<?php echo $fila["apellido"]; ?>" class="form-control" id="validationServer02" placeholder="Otto" required>
+          <label for="validationServer02" class="form-label">Proyecto</label>
+          <input type="text" id="proyecto" name="proyecto" value="<?php echo $fila["proyecto"]; ?>" class="form-control"  placeholder="Otto" required>
           <div class="valid-feedback">
           
           </div>
@@ -130,24 +130,7 @@ $fila= $resultado->fetch_assoc();
           </div>
         </div>
         
-   
-        
-        <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-3">
-          <label for="validationServer04" class="form-label"></label>
-          <select class="form-select " name="departamento" id="departamento" aria-describedby="validationServer04Feedback" required>
-          
-            <option <?php if ($fila["departamento"] === "Recursos humanos") echo " selected"; ?>>Recursos humanos</option>
-            <option <?php if ($fila["departamento"] === "Comercial") echo " selected"; ?>>Comercial</option>
-            <option <?php if ($fila["departamento"] === "Operaciones") echo " selected"; ?>>Operaciones</option>
-            <option <?php if ($fila["departamento"] === "Ingenieria") echo " selected"; ?>>Ingenieria</option>
-            <option <?php if ($fila["departamento"] === "Informatica") echo " selected"; ?>>Informatica</option>
-            <option <?php if ($fila["departamento"] === "Adquisiciones") echo " selected"; ?>>Adquisiciones</option>
-          </select>
-          <div id="validationServer04Feedback" class="invalid-feedback">
-          </div>
-        </div>
-        
-        
+ 
           <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;margin-top: 60px;" class="col-md-4">
           <label for="validationServer02" class="form-label">Requerimiento</label>
           <input type="text" name="requerimiento" value="<?php echo $fila["requerimiento"]; ?>" class="form-control" id="validationServer02" placeholder="Otto" required>

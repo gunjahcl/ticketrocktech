@@ -51,7 +51,7 @@ $resultado = $mysqli->query($sql);
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="requerimientosInternos.php">Requerimientos Internos</a></li>
-              <li><a class="dropdown-item" href="requermientosClientes.php">Requerimientos Clientes</a></li>
+              <li><a class="dropdown-item" href="requerimientosClientes.php">Requerimientos Clientes</a></li>
               <li>
               </li>
               <li><a class="dropdown-item" href="#">Recomendaciones</a></li>
@@ -106,7 +106,7 @@ $resultado = $mysqli->query($sql);
                 <td><?php echo $fila['fecha_inicio']; ?></td>
                 <td><?php echo $fila['fecha_termino']; ?></td>
                 <td><a onclick="return confirm('Desea Modificar este requerimiento ?')" title="Modificar Producto" href="modificarInterno.php?id=<?=$fila["id_ticketPersonal"]?>"><h3><img width="50" height="50" src="imgs/modificar.png"/></h3></a></td>
-                <td><a onclick="return confirm('Desea Borrar este requerimiento ?')" title="Borrar Producto" href="borrarInterno.php?id=<?=$fila["id_ticketPersonal"]?>"><h3><img width="50" height="50" src="imgs/eliminar.png"/></h3></a></td>
+                <td><a onclick="return confirm('Desea Borrar este requerimiento ?')" title="Borrar Producto" href="borradoInterno.php?id=<?=$fila["id_ticketPersonal"]?>"><h3><img width="50" height="50" src="imgs/eliminar.png"/></h3></a></td>
                 
                 <!-- Agrega más celdas de datos según tus necesidades -->
             </tr>

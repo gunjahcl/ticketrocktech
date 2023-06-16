@@ -11,7 +11,7 @@ if ($mysqli->connect_error) {
     die("Error de conexión: " . $mysqli->connect_error);
 }
 
-$sql = "SELECT * FROM ticket_personal";
+$sql = "SELECT * FROM ticket_cliente";
 $resultado = $mysqli->query($sql);
 ?>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ $resultado = $mysqli->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="./estilos/estilos.css">
-    <title>Requerimientos Internos</title>
+    <title>Requerimientos Clientes</title>
 </head>
 <body>
   
@@ -69,40 +69,42 @@ $resultado = $mysqli->query($sql);
 
 
 <div class="container">
-  <h1 style="display: flex; position: relative; margin-top: 200px; justify-content: center;" id="requerimientosinternos">Requerimientos Internos</h1>
+  <h1 style="display: flex; position: relative; margin-top: 100px; justify-content: center;" id="requerimientosinternos">Requerimientos Clientes</h1>
 </div>
 
-<div class="container">
+    <div class="container" style="display:flex;max-width: 100%">
   
-    <table border="1" cellpadding="8" cellspacing="0" align="center">
+    <table style="display:flex; margin-top: 50px" class="table table-dark table-striped" border="1" cellspacing="0" align="center">
         <tr>
-            <th>ID Ticket</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Correo</th>
-            <th>Departamento</th>
-            <th>Requerimiento</th>
-            <th>Descripcion</th>
-            <th>Prioridad</th>
-            <th>Estado</th>
-            <th>Fecha Inicio</th>
-            <th>Fecha Final</th>
+            <th scope="col" style="width: 100px">ID Ticket</th>
+            <th scope="col">Empresa</th>
+            <th scope="col" style="width: 100px">Proyecto</th>
+            <th scope="col">Correo</th>
+            <th scope="col" style="width: 600px">Requerimiento</th>
+            <th scope="col" style="width: 600px">Descripcion</th>
+            <th scope="col">Prioridad</th>
+            <th scope="col">Estado</th>
+            <th scope="col" style="width: 130px">Fecha Inicio</th>
+            <th scope="col" style="width: 130px">Fecha Final</th>
+            <th scope="col">Modificar</th>
+            <th scope="col">Borrar</th>
             <!-- Agrega más encabezados de columnas según tus necesidades -->
         </tr>
 
         <?php while ($fila = $resultado->fetch_assoc()) { ?>
             <tr>
-                <td><?php echo $fila['id_ticketPersonal']; ?></td>
-                <td><?php echo $fila['nombre']; ?></td>
-                <td><?php echo $fila['apellido']; ?></td>
+                <td><?php echo $fila['id_ticketCliente']; ?></td>
+                <td><?php echo $fila['empresa']; ?></td>
+                <td><?php echo $fila['proyecto']; ?></td>
                 <td><?php echo $fila['correo']; ?></td>
-                <td><?php echo $fila['departamento']; ?></td>
                 <td><?php echo $fila['requerimiento']; ?></td>
                 <td><?php echo $fila['descripcion']; ?></td>
                 <td><?php echo $fila['prioridad']; ?></td>
                 <td><?php echo $fila['estado']; ?></td>
                 <td><?php echo $fila['fecha_inicio']; ?></td>
                 <td><?php echo $fila['fecha_termino']; ?></td>
+                <td><a onclick="return confirm('Desea Modificar este requerimiento ?')" title="Modificar requerimiento Cliente" href="modificarCliente.php?id=<?=$fila["id_ticketCliente"]?>"><h3><img width="50" height="50" src="imgs/modificar.png"/></h3></a></td>
+                <td><a onclick="return confirm('Desea Borrar este requerimiento ?')" title="Borrar requerimiento Cliente" href="borradoCliente.php?id=<?=$fila["id_ticketCliente"]?>"><h3><img width="50" height="50" src="imgs/eliminar.png"/></h3></a></td>
                 
                 <!-- Agrega más celdas de datos según tus necesidades -->
             </tr>
