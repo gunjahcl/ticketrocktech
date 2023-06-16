@@ -1,3 +1,19 @@
+<?php
+
+$servername = "localhost";
+$database = "ticket_rocktech";
+$username = "root";
+$password = "";
+
+$mysqli = new mysqli($servername, $username, $password, $database);
+
+if ($mysqli->connect_error) {
+    die("Error de conexión: " . $mysqli->connect_error);
+}
+
+$sql = "SELECT * FROM ticket_personal";
+$resultado = $mysqli->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +25,7 @@
     <title>Requerimientos Internos</title>
 </head>
 <body>
+  
 <nav style="background-color: #1a1365;" class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">ROCKTECH</a>
@@ -52,13 +69,58 @@
 
 
 <div class="container">
-  <h1 style="display: flex; position: relative; margin-top: 200px; justify-content: center;" id="requerimientosinternos">Requerimientos Internos</h1>
+  <h1 style="display: flex; position: relative; margin-top: 100px; justify-content: center;" id="requerimientosinternos">Requerimientos Internos</h1>
 </div>
 
+    <div class="container" style="display:flex;max-width: 100%">
+  
+    <table style="display:flex; margin-top: 50px" class="table table-dark table-striped" border="1" cellspacing="0" align="center">
+        <tr>
+            <th scope="col" style="width: 100px">ID Ticket</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Departamento</th>
+            <th scope="col" style="width: 600px">Requerimiento</th>
+            <th scope="col" style="width: 600px">Descripcion</th>
+            <th scope="col">Prioridad</th>
+            <th scope="col">Estado</th>
+            <th scope="col" style="width: 130px">Fecha Inicio</th>
+            <th scope="col" style="width: 130px">Fecha Final</th>
+            <th scope="col">Modificar</th>
+            <th scope="col">Borrar</th>
+            <!-- Agrega más encabezados de columnas según tus necesidades -->
+        </tr>
 
+        <?php while ($fila = $resultado->fetch_assoc()) { ?>
+            <tr>
+                <td><?php echo $fila['id_ticketPersonal']; ?></td>
+                <td><?php echo $fila['nombre']; ?></td>
+                <td><?php echo $fila['apellido']; ?></td>
+                <td><?php echo $fila['correo']; ?></td>
+                <td><?php echo $fila['departamento']; ?></td>
+                <td><?php echo $fila['requerimiento']; ?></td>
+                <td><?php echo $fila['descripcion']; ?></td>
+                <td><?php echo $fila['prioridad']; ?></td>
+                <td><?php echo $fila['estado']; ?></td>
+                <td><?php echo $fila['fecha_inicio']; ?></td>
+                <td><?php echo $fila['fecha_termino']; ?></td>
+                <td><a onclick="return confirm('Desea Modificar este requerimiento ?')" title="Modificar Producto" href="modificarInterno.php?id=<?=$fila["id_ticketPersonal"]?>"><h3><img width="50" height="50" src="imgs/modificar.png"/></h3></a></td>
+                <td><a onclick="return confirm('Desea Borrar este requerimiento ?')" title="Borrar Producto" href="borrarInterno.php?id=<?=$fila["id_ticketPersonal"]?>"><h3><img width="50" height="50" src="imgs/eliminar.png"/></h3></a></td>
+                
+                <!-- Agrega más celdas de datos según tus necesidades -->
+            </tr>
+        <?php } ?>
+
+    </table>
+    
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </body>
 </html>
+<?php
+$mysqli->close();
+?>

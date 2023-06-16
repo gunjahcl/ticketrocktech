@@ -1,3 +1,19 @@
+<?php
+
+$servername = "localhost";
+$database = "ticket_rocktech";
+$username = "root";
+$password = "";
+
+$mysqli = new mysqli($servername, $username, $password, $database);
+
+if ($mysqli->connect_error) {
+    die("Error de conexión: " . $mysqli->connect_error);
+}
+
+$sql = "SELECT * FROM ticket_personal";
+$resultado = $mysqli->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +22,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="./estilos/estilos.css">
-    <title>Requerimientos Clientes</title>
+    <title>Requerimientos Internos</title>
 </head>
 <body>
+  
 <nav style="background-color: #1a1365;" class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">ROCKTECH</a>
@@ -23,7 +40,7 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+            <a class="nav-link" aria-current="page" href="index.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="administradores.php">Administradores</a>
@@ -50,13 +67,56 @@
   </div>
 </nav>
 
+
+<div class="container">
+  <h1 style="display: flex; position: relative; margin-top: 200px; justify-content: center;" id="requerimientosinternos">Requerimientos Internos</h1>
+</div>
+
+<div class="container">
+  
+    <table border="1" cellpadding="8" cellspacing="0" align="center">
+        <tr>
+            <th>ID Ticket</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Departamento</th>
+            <th>Requerimiento</th>
+            <th>Descripcion</th>
+            <th>Prioridad</th>
+            <th>Estado</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Final</th>
+            <!-- Agrega más encabezados de columnas según tus necesidades -->
+        </tr>
+
+        <?php while ($fila = $resultado->fetch_assoc()) { ?>
+            <tr>
+                <td><?php echo $fila['id_ticketPersonal']; ?></td>
+                <td><?php echo $fila['nombre']; ?></td>
+                <td><?php echo $fila['apellido']; ?></td>
+                <td><?php echo $fila['correo']; ?></td>
+                <td><?php echo $fila['departamento']; ?></td>
+                <td><?php echo $fila['requerimiento']; ?></td>
+                <td><?php echo $fila['descripcion']; ?></td>
+                <td><?php echo $fila['prioridad']; ?></td>
+                <td><?php echo $fila['estado']; ?></td>
+                <td><?php echo $fila['fecha_inicio']; ?></td>
+                <td><?php echo $fila['fecha_termino']; ?></td>
+                
+                <!-- Agrega más celdas de datos según tus necesidades -->
+            </tr>
+        <?php } ?>
+
+    </table>
     
-<h1 style="display: flex; position: relative; margin-top: 200px; justify-content: center;" >Requerimientos Clientes</h1>
-
-
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </body>
 </html>
+<?php
+$mysqli->close();
+?>

@@ -1,3 +1,30 @@
+<?php
+
+$servername = "localhost";
+$database = "ticket_rocktech";
+$username = "root";
+$password = "";
+
+$mysqli = new mysqli($servername, $username, $password, $database);
+
+if ($mysqli->connect_error) {
+    die("Error de conexión: " . $mysqli->connect_error);
+}
+
+$id = $_GET["id"];
+
+$sql = "SELECT * FROM ticket_personal WHERE id_ticketPersonal=$id";
+$resultado = $mysqli->query($sql);
+if($resultado->num_rows === 1){
+    
+    
+$fila= $resultado->fetch_assoc();    
+}
+
+
+?>
+
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,30 +95,30 @@
    </div> 
   <div class="container">
     <h1 style="display: flex; justify-content: center; top: 100px; margin-top: 100px;">tasks</h1>
-    <h5 style="display: flex; justify-content: center; top: 100px; margin-top: 10px;">requerimientos</h5>
+    <h5 style="display: flex; justify-content: center; top: 100px; margin-top: 10px;">Modificar Requerimientos</h5>
   </div>
   
   <div  class="container">
     <form action="agregadoTicket.php" method="post">
 
         <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-4">
-          <label for="validationServer01" name="nombre" id="nombre" class="form-label">Nombre</label>
-          <input type="text" name="nombre" id="nombre" class="form-control " id="validationServer01" placeholder="Mark" required>
+          <label for="validationServer01" class="form-label">Nombre</label>
+          <input type="text" name="nombre" value="<?php echo $fila["nombre"]; ?>" class="form-control " id="validationServer01" placeholder="Mark" required>
         </div>
         
         <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-4">
-          <label for="validationServer02" id="apellido" name="apellido" class="form-label">Apellido</label>
-          <input type="text" id="apellido" name="apellido" class="form-control" id="validationServer02" placeholder="Otto" required>
+          <label for="validationServer02" class="form-label">Apellido</label>
+          <input type="text" id="apellido" name="apellido" value="<?php echo $fila["apellido"]; ?>" class="form-control" id="validationServer02" placeholder="Otto" required>
           <div class="valid-feedback">
           
           </div>
         </div>
         
         <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-4">
-          <label for="validationServerUsername" name="correo" id="correo" class="form-label">Username</label>
+          <label for="validationServerUsername" class="form-label">Correo</label>
           <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="input-group has-validation">
             <span class="input-group-text" id="inputGroupPrepend3">@</span>
-            <input type="text" name="correo" id="correo" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+            <input type="text" name="correo" id="correo" value="<?php echo $fila["correo"]; ?>" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
             <div id="validationServerUsernameFeedback" class="invalid-feedback">
               
             </div>
@@ -103,8 +130,8 @@
         <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-3">
           <label for="validationServer04" class="form-label"></label>
           <select class="form-select " name="departamento" id="departamento" aria-describedby="validationServer04Feedback" required>
-            <option selected disabled value="">Departamento</option>
-            <option>Recursos Humanos</option>
+          
+            <option><?php if ($fila["departamento"] === "valor1") echo "selected"; ?></option>
             <option>Comercial</option>
             <option>Operaciones</option>
             <option>Ingenieria</option>
@@ -117,21 +144,21 @@
         
         
           <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;margin-top: 60px;" class="col-md-4">
-          <label for="validationServer02" id="requerimiento" name="requerimiento" class="form-label">Requerimiento</label>
-          <input type="text" name="requerimiento" id="requerimiento"class="form-control" id="validationServer02" placeholder="Otto" required>
+          <label for="validationServer02" class="form-label">Requerimiento</label>
+          <input type="text" name="requerimiento" id="requerimiento" value="<?php echo $fila["requerimiento"]; ?>" class="form-control" id="validationServer02" placeholder="Otto" required>
           <div class="valid-feedback">
                </div>
           </div>
       
         <div style="position: relative; justify-content: center; margin-top: 80px;" class="col-12">
-          <textarea class="col" style="display: flex; justify-content: center; margin-top: 40px; width: 100%;" name="descripcion" placeholder="Descripción"></textarea>
+          <textarea class="col" style="display: flex; justify-content: center; margin-top: 40px; width: 100%;" name="descripcion" placeholder="Descripción" ><?php echo $fila["descripcion"]; ?></textarea>
           
           </div>
         
         <div style="position: relative; justify-content: center; margin: 0px auto; align-items: center;" class="col-md-3">
           <label for="validationServer04" class="form-label"></label>
           <select class="form-select " name="prioridad" id="prioridad" aria-describedby="validationServer04Feedback" required>
-            <option selected disabled value="">Prioridad</option>
+            <option selected disabled value="<?php echo $fila["prioridad"]; ?>">Prioridad</option>
             <option>Baja</option>
             <option>Media</option>
             <option>Alta</option>
@@ -179,3 +206,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+
+  
+<?php
+$mysqli->close();
+?>
+
+

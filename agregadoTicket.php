@@ -29,7 +29,6 @@ echo "Connected successfully";
     
     
     // Realizar alguna acción con las variables 
-    "INSERT INTO productos (nombre, precio, cantidad) VALUES ('$nombre', '$precio', '$cantidad')";
 
 $sql = "INSERT INTO ticket_personal (nombre, apellido, correo, departamento, requerimiento, descripcion, prioridad, estado, fecha_inicio, fecha_termino) VALUES ('$nombre','$apellido','$correo','$departamento','$requerimiento','$descripcion','$prioridad','$estado','$fecha_inicio','$fecha_termino')";
 if (mysqli_query($conn, $sql)) {
