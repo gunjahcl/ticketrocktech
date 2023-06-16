@@ -1,0 +1,83 @@
+body{
+    margin: 0px;
+}
+
+
+.logo{
+
+width: 400px;
+
+}
+
+
+
+.contenedor a{
+
+color: white;
+text-decoration: none;
+font-size: 15px;
+
+
+}
+
+
+.row-aside{
+    display: flex;
+     background-color: #1a1365;
+     width: 350px;
+     height: 1500px;
+     margin: 0px;
+
+     
+      
+     
+}
+
+
+.contenedor ul{
+    text-decoration: none;
+}
+
+
+
+
+
+.logo{
+    position: relative;
+    display: flex;
+    margin: 0px auto;
+    margin-top: 200px;
+}
+
+
+
+
+
+
+
+
+
+.footer{
+position: relative;
+margin-top: 400px;
+
+}
+
+
+
+/* pagina administrador*/
+
+
+.container-login{
+color: white;    
+position: relative;
+background-color: #1a1365;
+align-items: center;
+display: flex;
+justify-content: center;
+}
+
+
+
+
+
