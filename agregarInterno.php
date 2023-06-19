@@ -16,7 +16,7 @@
 
 <nav style="background-color: #1a1365;" class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">ROCKTECH</a>
+    <a class="navbar-brand" href="index.php">ROCKTECH</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -144,7 +144,26 @@
           </div>
          
         </div>
-         <input class="btn btn-primary" style="display: flex; margin: 0px auto; margin-top:70px" type="submit" value="Enviar">      
+         <input class="btn btn-primary" style="display: flex; margin: 0px auto; margin-top:70px" type="submit" value="Enviar" data-toggle="modal" data-target="#exampleModalCenter">
+         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>      
       </form>
      </div>
 
