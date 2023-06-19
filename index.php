@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="./estilos/estilos.css">
 </head>
-<body>
+<body class="home">
 
 
 
@@ -16,7 +16,7 @@
 
 <nav style="background-color: #1a1365;" class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">ROCKTECH</a>
+    <a class="navbar-brand" href="index.php">ROCKTECH</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -39,7 +39,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="requerimientosInternos.php">Requerimientos Internos</a></li>
-              <li><a class="dropdown-item" href="requerimientosClientes.php">Requerimientos Clientes</a></li>
+              <li><a class="dropdown-item" style="background-color: #0a4275;" href="requerimientosClientes.php">Requerimientos Clientes</a></li>
               <li>
               </li>
               <li><a class="dropdown-item" href="requerimientos.php">Recomendaciones</a></li>
@@ -54,10 +54,21 @@
     </div>
   </div>
 </nav>
-  
 <div class="container-fluid">
-    
-  <img style="display: flex; justify-content: center; top: 100px; margin-top: 60px;" class="logo" src="imgs\rocktech.jpg" alt="">  
+      
+    <img class="" style="position: absolute; width: 1400px; height: 1000px; margin: 0px auto; top: 0px; justify-content: end; display: flex; left: 0px;" src="./imgs/fondohome.jpg" alt="">
+  </div>
+
+  <div class="container">
+    <div>
+      <img class="" style="display: flex; margin: 0px auto; width: 100px; justify-content: center; position: relative; margin-top: 150px;" src="./imgs/LogooRocktechblanco.png" alt="">
+    </div>
+  </div>
+  
+</div>
+<div class="container-fluid">
+        
+ 
 
   </div>
 
@@ -72,13 +83,25 @@
   </div>
   
   <div  class="container">
+  
+    <div style="width: 190px; height: 100px; background-color: #1a1365; margin-top: -100px;" class="logo"><button type="button" class="btn btn-outline-primary">
+      <a style="color: white; text-decoration: none; display: flex; margin: 0px auto; margin-top: 10px;" href="./agregarCliente.php">Requerimientos Clientes</a>
+    </button>
     
-      <a href="agregarCliente.php"> <img style="display: flex; justify-content: center; top: 100px; margin-top: 60px;" class="logo" src="imgs\clientes.png" alt="">  </a>
-      <a href="agregarInterno.php"><img style="display: flex; justify-content: center; top: 100px; margin-top: 60px;" class="logo" src="imgs\internos.png" alt="">  </a>
+    </div>
+
+    <div style="width: 190px; height: 100px; background-color: #1a1365;" class="logo">
+      <button type="button" class="btn btn-outline-primary">
+        <a style="color: white; text-decoration: none; display: flex; margin: 0px auto; margin-top: 10px;" href="./agregarInterno.php">Requerimientos Internos</a>
+
+      </button>  
+        </div>
+  
       
       
-      
-     </div>
+  </div>
+
+
 
         <section class="footer">
   <!-- Footer -->

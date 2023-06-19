@@ -13,7 +13,7 @@
 
 <nav style="background-color: #1a1365;" class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">ROCKTECH</a>
+    <a class="navbar-brand" href="index.php">ROCKTECH</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -52,13 +52,17 @@
 
 
 <div class="container-login">
+  <div>
+    <h1 style="position: absolute; margin-top: -120px; display: block; justify-content: center;">Administrador</h1>
+  </div>
 
-<div class="login mb-3">
+<div style="margin-top: 250px;" class="login mb-3">
   <label for="exampleFormControlInput1" class="form-label">Email address</label>
   <input type="email" class="form-control" id="correo" placeholder="name@example.com">
   <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Password</label>
   <input type="password" class="form-control" id="password" placeholder="Ingrese password">
+  <input style="display: block; margin: 0px auto; margin-top: 30px;" class="btn btn-primary" type="submit" value="Ingresar">
 </div>
 </div>
 
